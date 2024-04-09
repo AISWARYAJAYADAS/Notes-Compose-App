@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -75,6 +76,11 @@ dependencies {
 
     // extended material icons
     implementation(libs.androidx.material.icons.extended.android)
+
+    // hilt
+    implementation("com.google.dagger:hilt-android:2.44")
+    ksp("com.google.dagger:hilt-android-compiler:2.44")
+
 
 
     testImplementation(libs.junit)

@@ -18,32 +18,23 @@ import com.example.notescomposeapp.presentation.NoteScreen
 import com.example.notescomposeapp.presentation.NoteState
 import com.example.notescomposeapp.presentation.NoteViewModel
 import com.example.notescomposeapp.ui.theme.NotesComposeAppTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val database by lazy {
-        Room.databaseBuilder(
-            applicationContext,
-            NoteDatabase::class.java,
-            "notes.db"
-        ).build()
-    }
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val viewModel by viewModels<NoteViewModel>(
-        factoryProducer = {
-            object : ViewModelProvider.Factory {
-                override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                    return NoteViewModel(database.dao) as T
-                }
-            }
-        }
-    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             NotesComposeAppTheme {
+                val viewModel: NoteViewModel = ViewModelProvider(this, viewModelFactory).get(NoteViewModel::class.java)
                 val state by viewModel.state.collectAsState(initial = NoteState())
+
                 val navController = rememberNavController()
                 NavHost(navController = navController, startDestination = "NotesScreen") {
 
