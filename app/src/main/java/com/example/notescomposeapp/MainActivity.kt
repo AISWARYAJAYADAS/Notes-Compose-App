@@ -24,15 +24,15 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+    private val viewModel: NoteViewModel by viewModels()
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             NotesComposeAppTheme {
-                val viewModel: NoteViewModel = ViewModelProvider(this, viewModelFactory).get(NoteViewModel::class.java)
                 val state by viewModel.state.collectAsState(initial = NoteState())
 
                 val navController = rememberNavController()
