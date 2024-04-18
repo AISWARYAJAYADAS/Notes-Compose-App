@@ -8,6 +8,7 @@ android {
     namespace = "com.example.notescomposeapp"
     compileSdk = 34
 
+    
     defaultConfig {
         applicationId = "com.example.notescomposeapp"
         minSdk = 24

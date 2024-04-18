@@ -49,7 +49,8 @@ class NoteViewModel(
                 val note = Note(
                     title = event.title,
                     description = event.description,
-                    dateAdded = System.currentTimeMillis()
+                    dateAdded = System.currentTimeMillis(),
+                    testField = event.testField
                 )
 
                 viewModelScope.launch {
