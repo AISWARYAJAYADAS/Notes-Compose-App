@@ -7,5 +7,7 @@ import com.example.notescomposeapp.data.Note
 data class NoteState(
     var notes: List<Note> = emptyList(),
     val title: MutableState<String> = mutableStateOf(""),
-    val description: MutableState<String> = mutableStateOf("")
-)
+    val description: MutableState<String> = mutableStateOf(""),
+    val testField: MutableState<String> = mutableStateOf(""),
+
+    )

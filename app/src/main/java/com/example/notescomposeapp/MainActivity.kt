@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
+import com.example.notescomposeapp.data.DatabaseMigrations
 import com.example.notescomposeapp.data.NoteDatabase
 import com.example.notescomposeapp.presentation.AddNoteScreen
 import com.example.notescomposeapp.presentation.NoteScreen
@@ -26,7 +27,9 @@ class MainActivity : ComponentActivity() {
             applicationContext,
             NoteDatabase::class.java,
             "notes.db"
-        ).build()
+        )
+            .addMigrations(DatabaseMigrations.MIGRATION_1_2) // Add the migration here
+            .build()
     }
 
     private val viewModel by viewModels<NoteViewModel>(

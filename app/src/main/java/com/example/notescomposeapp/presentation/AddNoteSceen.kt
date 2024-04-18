@@ -28,7 +28,8 @@ fun AddNoteScreen(
                 onEvent(
                     NotesEvent.SaveNote(
                         title = state.title.value,
-                        description = state.description.value
+                        description = state.description.value,
+                        testField =state.testField.value
                     )
                 )
                 navController.popBackStack()
@@ -67,6 +68,20 @@ fun AddNoteScreen(
                     .padding(16.dp),
                 placeholder = {
                     Text(text = "Description")
+                },
+            )
+
+
+            OutlinedTextField(
+                value = state.testField.value,
+                onValueChange = {
+                    state.testField.value = it
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                placeholder = {
+                    Text(text = "Test Field")
                 },
             )
 
