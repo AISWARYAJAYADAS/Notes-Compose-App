@@ -9,5 +9,7 @@ data class Note(
     val id: Int = 0,
     val title: String,
     val description: String,
-    var dateAdded: Long
+    var dateAdded: Long,
+    val testField: String // New field
+
 )
