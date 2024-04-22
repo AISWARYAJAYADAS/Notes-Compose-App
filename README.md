@@ -20,14 +20,29 @@ NotesComposeApp is a simple Android application built using Jetpack Compose and 
 
 <!-- Include screenshots of your app's UI here -->
 
+<div align="center">
+
 **Note Screen**
+
 ![Note Screen](screenshots/note.png)
 
+</div>
+
+<div align="center">
+
 **Add Note Screen**
+
 ![Add Note Screen](screenshots/add.png)
 
+</div>
+
+<div align="center">
+
 **Room Database**
-![Room Database](screenshots/database.png)
+
+![Room Database](screenshots/room.png)
+
+</div>
 
 ## Logic
 
@@ -56,4 +71,3 @@ NotesComposeApp is a simple Android application built using Jetpack Compose and 
 - Jetpack Compose: Modern Android UI toolkit for building native UIs.
 - Room Database: Persistence library providing an abstraction layer over SQLite.
 - Kotlin Coroutines: For asynchronous programming and managing background tasks.
-
